@@ -3015,7 +3015,7 @@ footer {
     padding: 2rem 0;
 }
 
-.load-more-btn {
+.red-btn {
     background: var(--btn-gradient);
     color: white;
     border: none;
@@ -3035,7 +3035,7 @@ footer {
     overflow: hidden;
 }
 
-.load-more-btn::before {
+.red-btn::before {
     content: '';
     position: absolute;
     top: 0;
@@ -3046,20 +3046,20 @@ footer {
     transition: left 0.5s ease;
 }
 
-.load-more-btn:hover {
+.red-btn:hover {
     transform: translateY(-2px) scale(1.05);
     box-shadow: 0 12px 35px var(--glow-color);
 }
 
-.load-more-btn:hover::before {
+.red-btn:hover::before {
     left: 100%;
 }
 
-.load-more-btn:active {
+.red-btn:active {
     transform: translateY(0) scale(1.02);
 }
 
-.load-more-text {
+.red-btn {
     font-family: 'Inter', sans-serif;
 }
 
@@ -3162,7 +3162,7 @@ footer {
 }
 
 @media (max-width: 480px) {
-    .load-more-btn {
+    .red-btn {
         padding: 0.75rem 1.5rem;
         font-size: 0.85rem;
     }
@@ -3264,6 +3264,26 @@ footer {
 
 /* ARJ CUSTOS */
 
+.goto_event_section {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+
+.post-body {
+    a:link {
+        color: deeppink;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: hotpink;
+        background-color: transparent;
+        text-decoration: none;
+    }
+}
+
 .post_content_large {
     max-width: 1200px;
 }
@@ -3333,12 +3353,22 @@ footer {
     word-wrap: break-word;
 }
 
-.vote_btn {
-    height: 1.5rem;
+.vote_div {
+    text-align: center;
+    width: auto;
+    height: auto;
+    position: relative;
+    height: 100%;
     width: 100%;
-    padding: 2.5rem;
-    background-color: DodgerBlue;
-    font-size: 2em;
+    margin: 1rem 1rem  1rem 1rem;
+    .vote_btn {
+        height: 100%;
+        background-color: transparent;
+        color: white;
+        font-size: 1em;
+        /* padding: 1rem 5rem 4rem 3rem; */
+        padding: 1em 1.5em 1.5em 1em;
+    }
 }
 
 /* END ARJ CUSTOS */

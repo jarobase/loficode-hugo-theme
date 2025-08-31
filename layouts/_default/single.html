@@ -60,28 +60,6 @@
                 </div>
             </div>
             {{ end }}
-
-            <!-- Post Navigation (Prev/Next) -->
-             <!-- ARJ TODO this block was commented before, see what it does -->
-            <nav class="post-navigation">
-                {{ with .PrevInSection }}
-                <div class="nav-previous">
-                    <span class="nav-label">← Previous</span>
-                    <a href="{{ .Permalink }}" class="nav-title">{{ .Title }}</a>
-                </div>
-                {{ else }}
-                <div></div>
-                {{ end }}
-
-                {{ with .NextInSection }}
-                <div class="nav-next">
-                    <span class="nav-label">Next →</span>
-                    <a href="{{ .Permalink }}" class="nav-title">{{ .Title }}</a>
-                </div>
-                {{ else }}
-                <div></div>
-                {{ end }}
-            </nav>
         </article>
 
         <aside class="sidebar">
