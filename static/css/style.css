@@ -3261,3 +3261,84 @@ footer {
         gap: 0.25rem;
     }
 }
+
+/* ARJ CUSTOS */
+
+.post_content_large {
+    max-width: 1200px;
+}
+.a_post_img {
+    max-width: 100%;
+}
+
+.member_picture {
+    height: auto;
+    height: auto;
+    width: auto;
+    max-width: 10rem;
+    /* max-height: 10rem; */
+    float: bottom;
+    /* object-fit: contain; */
+}
+
+.flex_container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 10em;
+    margin-right: 1em;
+    margin-left: 1em;
+    max-height: 150em;
+}
+
+.column {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.col {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.col-3 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.name_scene {
+    word-wrap: break-word;
+}
+
+.vote_btn {
+    height: 1.5rem;
+    width: 100%;
+    padding: 2.5rem;
+    background-color: DodgerBlue;
+    font-size: 2em;
+}
+
+/* END ARJ CUSTOS */
