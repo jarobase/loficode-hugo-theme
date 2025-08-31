@@ -1766,11 +1766,6 @@
         // Fetch posts data from index.json
         const response = await fetch('/index.json');
         let postsData = await response.json();
-        const tagList = post.tags.map(e => e.toLowerCase());
-        if (activeTagValue && !tagList.includes(activeTagValue)) {
-          // hide posts that don't follow the currently selected tag
-          postElement.style.display = 'none';
-        }
 
         // Get the next batch of posts
         const nextPosts = postsData.slice(loaded, loaded + postsPerPage);
@@ -1779,6 +1774,11 @@
         for (const post of nextPosts) {
           const postElement = await createPostElement(post);
           postsContainer.appendChild(postElement);
+          const tagList = post.tags.map(e => e.toLowerCase());
+          if (activeTagValue && !tagList.includes(activeTagValue)) {
+          // hide posts that don't follow the currently selected tag
+          postElement.style.display = 'none';
+        }
 
           // Add a small delay for smooth animation
           await new Promise(resolve => setTimeout(resolve, 100));
