@@ -417,7 +417,6 @@
   function updateTOC() {
     const headings = document.querySelectorAll(".post-body h2, .post-body h3");
     const tocLinks = document.querySelectorAll("#toc-content a");
-
     if (headings.length === 0 || tocLinks.length === 0) return;
 
     let current = 0;
@@ -469,6 +468,8 @@
             post.style.display = "none";
           }
         });
+        console.log('update TOC')
+        updateTOC();
       }
     });
   });
@@ -1317,32 +1318,6 @@
               `
                   : ""
               }
-
-              ${navigation.prev || navigation.next
-                  ? `
-                <nav class="post-navigation">
-                  ${navigation.prev
-                      ? `
-                    <div class="nav-previous">
-                      <span class="nav-label">← Previous</span>
-                      <a href="${navigation.prev.url}" data-spa-link class="nav-title">${navigation.prev.title}</a>
-                    </div>
-                  `
-                      : "<div></div>"
-                  }
-                  ${navigation.next
-                      ? `
-                    <div class="nav-next">
-                      <span class="nav-label">Next →</span>
-                      <a href="${navigation.next.url}" data-spa-link class="nav-title">${navigation.next.title}</a>
-                    </div>
-                  `
-                      : "<div></div>"
-                  }
-                </nav>
-              `
-                  : ""
-              }
             </article>
 
             <aside class="sidebar">
@@ -1742,6 +1717,8 @@
     window.spa = spa; // Make globally accessible
   }
 
+
+
   // Load More Posts functionality
   const loadMoreBtn = document.getElementById('load-more-btn');
   const loadMoreLoading = document.getElementById('load-more-loading');
@@ -1751,6 +1728,7 @@
     loadMoreBtn.addEventListener('click', async () => {
       const loaded = parseInt(loadMoreBtn.dataset.loaded);
       const total = parseInt(loadMoreBtn.dataset.total);
+      console.log("reload toc");
       const postsPerPage = 5;
       const activeTag = document.querySelector(".filter-tags .tag.active");
       let activeTagValue;
