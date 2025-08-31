@@ -221,7 +221,7 @@ nav {
 }
 
 .logo::before {
-    content: "☕";
+    content: "❄️";
     font-size: 1.2rem;
     -webkit-text-fill-color: var(--accent-tertiary) !important;
     color: var(--accent-tertiary);
@@ -1248,7 +1248,7 @@ pre, pre code {
 }
 
 .coffee-break::before {
-    content: "☕";
+    content: "❄️";
     font-size: 2rem;
     position: absolute;
     top: -2rem;
@@ -2881,7 +2881,7 @@ footer {
 }
 
 .overlay-site-title::before {
-    content: "☕";
+    content: "❄️";
     font-size: 1rem;
     -webkit-text-fill-color: var(--accent-tertiary) !important;
     color: var(--accent-tertiary);
