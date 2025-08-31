@@ -619,8 +619,7 @@
       const resultsHTML = results
         .map(
           (post) => `
-        <div class="search-result-item" onclick="handleSearchResultClick('${
-          post.url
+        <div class="search-result-item" onclick="handleSearchResultClick('${post.url
         }')">
           <div class="search-result-title">${highlightText(
             post.title,
@@ -1271,21 +1270,13 @@
               <header class="post-header">
                 <div class="post-meta">
                   <span class="post-date">${post.dateFormatted}</span>
-                  <div class="reading-time-post">
-                    <span class="coffee-cups">${"☕".repeat(
-                      Math.max(1, Math.min(5, Math.ceil(post.readingTime / 3)))
-                    )}</span>
-                    <span>${post.readingTime} min read</span>
-                  </div>
                 </div>
                 <h1 class="post-title">${post.title}</h1>
-                ${
-                  post.subtitle
+                ${post.subtitle
                     ? `<p class="post-subtitle">${post.subtitle}</p>`
                     : ""
                 }
-                ${
-                  post.tags && post.tags.length > 0
+                ${post.tags && post.tags.length > 0
                     ? `
                   <div class="post-tags-header">
                     ${post.tags
@@ -1300,8 +1291,7 @@
                 ${post.content}
               </div>
 
-              ${
-                relatedPosts.length > 0
+              ${relatedPosts.length > 0
                   ? `
                 <div class="related-posts">
                   <h3>Related Content</h3>
@@ -1310,8 +1300,7 @@
                       .map(
                         (relatedPost) => `
                       <div class="related-post">
-                        <h4><a href="${relatedPost.url}" data-spa-link>${
-                          relatedPost.title
+                        <h4><a href="${relatedPost.url}" data-spa-link>${relatedPost.title
                         }</a></h4>
                         <div class="related-meta">
                           ${relatedPost.dateFormatted} •
@@ -1329,12 +1318,10 @@
                   : ""
               }
 
-              ${
-                navigation.prev || navigation.next
+              ${navigation.prev || navigation.next
                   ? `
                 <nav class="post-navigation">
-                  ${
-                    navigation.prev
+                  ${navigation.prev
                       ? `
                     <div class="nav-previous">
                       <span class="nav-label">← Previous</span>
@@ -1343,8 +1330,7 @@
                   `
                       : "<div></div>"
                   }
-                  ${
-                    navigation.next
+                  ${navigation.next
                       ? `
                     <div class="nav-next">
                       <span class="nav-label">Next →</span>
@@ -1765,8 +1751,13 @@
     loadMoreBtn.addEventListener('click', async () => {
       const loaded = parseInt(loadMoreBtn.dataset.loaded);
       const total = parseInt(loadMoreBtn.dataset.total);
-      const postsPerPage = 3;
-
+      const postsPerPage = 5;
+      const activeTag = document.querySelector(".filter-tags .tag.active");
+      let activeTagValue;
+      if (activeTag) {
+       // TODO does not work with space in tags
+       activeTagValue = activeTag.dataset.tag;
+      }
       // Show loading state
       loadMoreBtn.style.display = 'none';
       loadMoreLoading.style.display = 'flex';
@@ -1774,7 +1765,12 @@
       try {
         // Fetch posts data from index.json
         const response = await fetch('/index.json');
-        const postsData = await response.json();
+        let postsData = await response.json();
+        const tagList = post.tags.map(e => e.toLowerCase());
+        if (activeTagValue && !tagList.includes(activeTagValue)) {
+          // hide posts that don't follow the currently selected tag
+          postElement.style.display = 'none';
+        }
 
         // Get the next batch of posts
         const nextPosts = postsData.slice(loaded, loaded + postsPerPage);
@@ -1796,7 +1792,7 @@
         loadMoreLoading.style.display = 'none';
 
         // Show button again if there are more posts
-        if (newLoaded < total) {
+        if (newLoaded < total && !activeTagValue) {
           loadMoreBtn.style.display = 'flex';
         }
 
@@ -1815,7 +1811,8 @@
     postDiv.className = `post-item${post.featured ? ' featured' : ''}`;
 
     // Calculate coffee cups for reading time (max 5 cups)
-    const cupsToShow = Math.min(post.readingTime, 5);
+    // never show any cops
+    const cupsToShow = 0
     const coffeeCups = "☕".repeat(cupsToShow);
 
     // Create mood badge if mood exists
@@ -1852,15 +1849,11 @@
         ${tagsHtml ? `<div class="post-tags-vaporwave">${tagsHtml}</div>` : ''}
 
         <a href="${post.url}" class="continue-reading-vaporwave">
-          Read More →
+          Continuer la lecture →
         </a>
       </div>
 
       <div class="post-meta-sidebar">
-        <div class="reading-time-vaporwave">
-          <span class="coffee-cups">${coffeeCups}</span>
-          <span>${post.readingTime} min</span>
-        </div>
       </div>
     `;
 
