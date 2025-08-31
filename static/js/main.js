@@ -21,8 +21,8 @@
     ) {
       return "dark";
     }
-
-    return "light";
+    // always dark by default
+    return "dark";
   }
 
   // Set initial theme

@@ -607,11 +607,6 @@
     </style>
 </head>
 <body>
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" id="themeToggle" title="Toggle theme">
-        🌙
-    </button>
-
     <!-- Matrix Rain Background -->
     <div class="matrix-rain" id="matrixRain"></div>
 
@@ -875,7 +870,7 @@
             ).slice(0, 5);
 
             if (matches.length === 0) {
-                results.innerHTML = '<div class="no-results">No posts found. Try different keywords!</div>';
+                results.innerHTML = '<div class="no-results">No post found. Try different keywords!</div>';
             } else {
                 results.innerHTML = matches.map(post => `
                     <div class="search-result" onclick="window.location.href='${post.url}'">
