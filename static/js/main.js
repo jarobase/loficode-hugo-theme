@@ -1304,7 +1304,7 @@
                         }</a></h4>
                         <div class="related-meta">
                           ${relatedPost.dateFormatted} •
-                          ${"☕".repeat(
+                          ${"❄️".repeat(
                             Math.max(1, Math.ceil(relatedPost.readingTime / 3))
                           )} ${relatedPost.readingTime} min read
                         </div>
