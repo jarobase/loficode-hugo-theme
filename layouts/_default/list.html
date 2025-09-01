@@ -10,29 +10,6 @@
       />
     </div>
     <p class="profile-tagline">{{ .Site.Params.tagline }}</p>
-    <div class="social-links">
-      {{ if .Site.Params.github }}
-      <a
-        href="{{ .Site.Params.github }}"
-        target="_blank"
-        rel="noopener"
-        class="social-link"
-        title="GitHub"
-      >
-        <i class="fab fa-github social-icon"></i>
-      </a>
-      {{ end }} {{ if .Site.Params.twitter }}
-      <a
-        href="{{ .Site.Params.twitter }}"
-        target="_blank"
-        rel="noopener"
-        class="social-link"
-        title="X (formerly Twitter)"
-      >
-        <span class="social-icon x-icon">𝕏</span>
-      </a>
-      {{ end }}
-    </div>
   </div>
   {{ end }} {{ if .IsHome }}
   <div class="filter-section">
