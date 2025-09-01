@@ -378,10 +378,24 @@
   // Initialize code fences when DOM is ready
   initializeCodeFences();
 
+  function resetToc() {
+    const tocContent = document.getElementById("toc-content");
+    tocContent.innerHTML = "";
+  }
   // Table of contents generation and highlighting
   function generateTOC() {
+  
     const tocContent = document.getElementById("toc-content");
-    const headings = document.querySelectorAll(".post-body h2, .post-body h3");
+    const posts = document.querySelectorAll('.post-item');
+    const filteredPosts = [...posts].filter(p => p.style.display != 'none');
+    const headings = [];
+    filteredPosts.forEach((p) => {
+      if (p.style.display != 'none') {
+        headings.push(p.querySelector(".post-body h2, .post-body h3"));
+      }
+    });
+    // const newHeadings = filteredPosts.querySelectorFrom(".post-body h2, .post-body h3");
+    // const headings = document.querySelectorAll(".post-body h2, .post-body h3");
 
     if (!tocContent || headings.length === 0) return;
 
@@ -468,7 +482,8 @@
             post.style.display = "none";
           }
         });
-        console.log('update TOC')
+        resetToc();
+        generateTOC();
         updateTOC();
       }
     });
@@ -1728,7 +1743,6 @@
     loadMoreBtn.addEventListener('click', async () => {
       const loaded = parseInt(loadMoreBtn.dataset.loaded);
       const total = parseInt(loadMoreBtn.dataset.total);
-      console.log("reload toc");
       const postsPerPage = 5;
       const activeTag = document.querySelector(".filter-tags .tag.active");
       let activeTagValue;
@@ -1773,6 +1787,9 @@
         if (newLoaded < total && !activeTagValue) {
           loadMoreBtn.style.display = 'flex';
         }
+        resetToc();
+        generateTOC();
+        updateTOC();
 
       } catch (error) {
         console.error('Error loading more posts:', error);
