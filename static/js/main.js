@@ -387,16 +387,19 @@
   
     const tocContent = document.getElementById("toc-content");
     const posts = document.querySelectorAll('.post-item');
-    const filteredPosts = [...posts].filter(p => p.style.display != 'none');
-    const headings = [];
-    filteredPosts.forEach((p) => {
-      if (p.style.display != 'none') {
-        headings.push(p.querySelector(".post-body h2, .post-body h3"));
-      }
-    });
-    // const newHeadings = filteredPosts.querySelectorFrom(".post-body h2, .post-body h3");
-    // const headings = document.querySelectorAll(".post-body h2, .post-body h3");
-
+    let headings
+    if (posts.length > 0) {
+      const filteredPosts = [...posts].filter(p => p.style.display != 'none');
+      headings = [];
+      filteredPosts.forEach((p) => {
+        if (p.style.display != 'none') {
+          headings.push(p.querySelector(".post-body h2, .post-body h3"));
+        }
+      });
+    } else {
+      headings = document.querySelectorAll(".post-body h2, .post-body h3");
+    }
+    
     if (!tocContent || headings.length === 0) return;
 
     const tocList = document.createElement("ul");
