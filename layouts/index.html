@@ -17,10 +17,11 @@
   <div class="goto_event_section">
     <form action="/event" method="get" target="_self">
       <button class="red-btn goto_event_btn" type="submit">
-        Découvrez tous nos spectaclés passés et à venir
+        Découvrez tous nos spectacles à venir
       </button>
     </form>
   </div>
+  <!-- 
   <h1 class="post-title">Dernières nouvelles</h1>
   <div class="posts-list" id="posts-container">
     {{ $posts := where .Site.RegularPages "Section" "eq" "posts" }} {{
@@ -31,6 +32,7 @@
   {{ $posts := where .Site.RegularPages "Section" "eq" "posts" }} {{ if gt (len
   $posts) 3 }}
 
-  {{ end }}
+  {{ end }} 
+   -->
 </div>
 {{ end }}
