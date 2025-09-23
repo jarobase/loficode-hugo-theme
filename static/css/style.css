@@ -3267,6 +3267,13 @@ footer {
     padding-bottom: 1em;
 }
 
+.goto_event_btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
 
 .post-body {
     a:link {
