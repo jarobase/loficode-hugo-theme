@@ -467,7 +467,7 @@
       const tagName = tag.dataset.tag || tag.textContent.toLowerCase();
       const posts = document.querySelectorAll(".post-item");
 
-      if (tagName === "all" || tag.textContent === "All") {
+      if (tagName === "all" || tag.textContent === "Tout") {
         // Show all posts
         posts.forEach((post) => {
           post.style.display = "grid";

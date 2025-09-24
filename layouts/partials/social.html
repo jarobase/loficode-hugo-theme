@@ -31,5 +31,9 @@
     <a href="{{ $url }}" target="_blank" rel="noopener" class="social-link" title="Facebook">
         <i class="fab fa-facebook social-icon"></i>
     </a>
+    {{ else if eq $name "rss" }}
+    <a href="{{ $url }}" target="_blank" rel="noopener" class="social-link" title="RSS">
+        <i class="fas fa-square-rss social-icon"></i>
+    </a>
     {{ end }} {{ end }}
 </div>
