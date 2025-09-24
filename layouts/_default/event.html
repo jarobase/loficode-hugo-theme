@@ -10,9 +10,12 @@
         <div class="post-body">
             <div class="filter-section">
                 <div class="filter-tags">
-                    <div class="tag active">All</div>
-                    {{ range .Site.Taxonomies.tags.ByCount }}
-                    <div class="tag" data-tag="{{ .Name | urlize }}">{{ .Name }}</div>
+                    <div class="tag active">Tout</div>
+                    <!-- Updated from Name to .Page.Title to keep uppercase first letter of tags 
+                         Archives are the most present category, Reverse put it at the end 
+                    -->
+                    {{ range .Site.Taxonomies.tags.ByCount.Reverse }}
+                    <div class="tag" data-tag="{{ .Name | urlize }}">{{ .Page.Title }}</div>
                     {{ end }}
                 </div>
             </div>

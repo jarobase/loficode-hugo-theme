@@ -14,7 +14,7 @@
   {{ end }} {{ if .IsHome }}
   <div class="filter-section">
     <div class="filter-tags">
-      <div class="tag active">All</div>
+      <div class="tag active">Tout</div>
       {{ range .Site.Taxonomies.tags.ByCount }}
       <div class="tag" data-tag="{{ .Name | urlize }}">{{ .Name }}</div>
       {{ end }}
