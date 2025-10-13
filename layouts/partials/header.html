@@ -14,6 +14,11 @@
             <button class="search-toggle" title="Search posts">🔍</button>
             <!-- <button class="theme-toggle" title="Toggle dark mode">🌙</button> -->
         </div>
+        <div class="nav-menu">
+            <button class="menu-btn" type="button">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
     </nav>
 
     <!-- Sliding Search Form -->
@@ -30,5 +35,12 @@
             </div>
             <div class="search-results" id="searchResults"></div>
         </div>
+    </div>
+    <div class="search-results mobile-menu-container" id="mobileMenu">
+        {{ range .Site.Menus.main }}
+            <div class="search-result-item">
+                <a href="{{ .URL | absLangURL }}" target="_parent" class="search-result-title">{{ .Name }}</a>
+            </div>
+        {{ end }}
     </div>
 </header>
