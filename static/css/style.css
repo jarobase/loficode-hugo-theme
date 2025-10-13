@@ -3324,10 +3324,14 @@ footer {
     height: auto;
     height: auto;
     width: auto;
-    max-width: 10rem;
+    max-width: 100%;
     /* max-height: 10rem; */
     float: bottom;
+    object-fit: contain;
     /* object-fit: contain; */
+    .member_picture_img {
+        max-width: inherit;
+    }
 }
 
 .flex_container {
