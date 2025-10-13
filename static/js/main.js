@@ -514,8 +514,12 @@
   const searchClose = document.querySelector(".search-close");
   const searchSubmit = document.querySelector(".search-submit");
 
+  // Mobile menu
+  const MobileMenuToggle = document.querySelector(".menu-btn");
+
   let searchData = [];
   let isSearchOpen = false;
+  let isMenuOpen = false;
 
   // Load search data (posts) - works on all pages
   async function loadSearchData() {
@@ -586,6 +590,18 @@
       resetPostVisibility();
     }
   }
+
+// Toggle Mobile Menu
+function toggleMobileMenu() {
+    isMenuOpen = !isMenuOpen;
+    const mobileMenuEl = document.querySelector(".mobile-menu-container");
+    if (isMenuOpen) {
+      mobileMenuEl.style.display = "block";
+    } else {
+      mobileMenuEl.style.display = "none";
+    }
+  }
+
 
   // Reset post visibility and filters
   function resetPostVisibility() {
@@ -762,6 +778,10 @@
     searchSubmit.addEventListener("click", () => {
       performSearch(searchInput.value);
     });
+  }
+
+  if (MobileMenuToggle) {
+    MobileMenuToggle.addEventListener("click", toggleMobileMenu);
   }
 
   // Close search when clicking outside
