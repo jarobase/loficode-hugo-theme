@@ -22,7 +22,35 @@ passiez vos meilleures soirées !
         Découvrez tous nos spectacles
       </button>
     </form>
+    <div class="slideshow">
+      <img class="slides" src="../images/slide_1.jpg">
+      <img class="slides" src="../images/slide_2.jpg">
+      <img class="slides" src="../images/slide_3.jpg">
+      <img class="slides" src="../images/slide_4.jpg">
+      <img class="slides" src="../images/slide_5.jpg">
+      <img class="slides" src="../images/slide_6.jpg">
+    </div>
   </div>
+
+<script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let slides = document.getElementsByClassName("slides");
+  for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
+  slideIndex++;
+  if (slideIndex > slides.length) slideIndex = 1;
+  slides[slideIndex - 1].style.display = "block";
+  setTimeout(showSlides, 3000); // Change every 3 seconds
+}
+
+function plusSlides(n) {
+  slideIndex += n - 1;
+  showSlides();
+}
+</script>
+  
   <h1 class="post-title">Dernières nouvelles</h1>
   <div class="posts-list" id="posts-container">
     {{ $posts := where .Site.RegularPages "Section" "eq" "posts" }} {{
