@@ -583,8 +583,8 @@ nav {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 170px;
-    height: 170px;
+    width: 100px;
+    height: 100px;
     transform: translate(-50%, -52%);
     background: var(--btn-gradient);
     border-radius: 50%;
@@ -598,10 +598,9 @@ nav {
 }
 
 .profile-photo {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
     position: relative;
     z-index: 2;
     transition: transform 0.3s ease;
@@ -722,14 +721,9 @@ nav {
         padding: 1.5rem 1rem;
     }
 
-    .profile-photo-container::before {
-        width: 108px;
-        height: 108px;
-    }
-
     .profile-photo {
-        width: 100px;
-        height: 100px;
+        width: 200px;
+        height: 200px;
     }
 
     .profile-tagline {
