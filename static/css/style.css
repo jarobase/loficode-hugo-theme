@@ -220,6 +220,7 @@ nav {
 
 .logo {
     display: inline-block;
+    /* arj todo: switch to 45% maybe.*/
     max-width: 220px;
     transition: transform 0.2s ease;
 }
@@ -233,6 +234,7 @@ nav {
     max-width: 100%;
     height: auto;
 }
+
 
 .nav-links {
     display: flex;
@@ -598,7 +600,7 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('../images/skiing.gif') center/cover no-repeat;
+    background: url('../images/skiing.webp') center/cover no-repeat;
     border-radius: 25px;
     animation: pulse-glow 3s ease-in-out infinite;
     z-index: 1;
