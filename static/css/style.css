@@ -3325,13 +3325,12 @@ footer {
     height: auto;
     width: auto;
     max-width: 100%;
-    /* max-height: 10rem; */
     float: bottom;
     object-fit: contain;
-    /* object-fit: contain; */
     .member_picture_img {
         max-width: inherit;
     }
+    text-align: center;
 }
 
 .flex_container {
@@ -3382,8 +3381,16 @@ footer {
     max-width: 25%;
 }
 
-.name_scene {
+.member_name {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.member_scene_name {
     word-wrap: break-word;
+    font-size: 0.9em;
+    text-align: center;
 }
 
 .vote_div {
