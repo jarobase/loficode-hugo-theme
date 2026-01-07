@@ -23,32 +23,17 @@ passiez vos meilleures soirées !
       </button>
     </form>
     <div class="slideshow">
-      <img class="slides" src="../images/slide_1.webp">
-      <img class="slides" src="../images/slide_2.webp">
-      <img class="slides" src="../images/slide_3.webp">
-      <img class="slides" src="../images/slide_4.webp">
-      <img class="slides" src="../images/slide_5.webp">
-      <img class="slides" src="../images/slide_6.webp">
+      <img class="slides" src="../images/slide_1.webp" alt="Slide 1">
+      <img class="slides" src="../images/slide_2.webp" alt="Slide 2">
+      <img class="slides" src="../images/slide_3.webp" alt="Slide 3">
+      <img class="slides" src="../images/slide_4.webp" alt="Slide 4">
+      <img class="slides" src="../images/slide_5.webp" alt="Slide 5">
+      <img class="slides" src="../images/slide_6.webp" alt="Slide 6">
     </div>
   </div>
 
 <script>
-let slideIndex = 0;
-showSlides();
 
-function showSlides() {
-  let slides = document.getElementsByClassName("slides");
-  for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
-  slideIndex++;
-  if (slideIndex > slides.length) slideIndex = 1;
-  slides[slideIndex - 1].style.display = "block";
-  setTimeout(showSlides, 3000); // Change every 3 seconds
-}
-
-function plusSlides(n) {
-  slideIndex += n - 1;
-  showSlides();
-}
 </script>
   
   <h1 class="post-title">Dernières nouvelles</h1>
