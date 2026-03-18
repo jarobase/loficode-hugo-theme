@@ -935,6 +935,8 @@ function toggleMobileMenu() {
 
       // Handle initial URL
       this.handleInitialRoute();
+      // start slide 
+      this.showSlides();
     }
 
     detectPageType() {
@@ -1738,6 +1740,24 @@ function toggleMobileMenu() {
       if (updateHistory) {
         history.pushState({ type: "home" }, "LofiCode", "/");
       }
+    }
+
+    showSlides() {
+      let slides = document.getElementsByClassName("slides");
+      if (!slides.length) {
+        return;
+      }
+      for (let idx = 0; idx < slides.length; idx++) {
+        slides[idx].style.display = "none";
+      }
+      let currentSlide = slides[this.slideIndex];
+      if (! currentSlide) {
+        this.slideIndex = 0;
+        currentSlide = slides[0];
+      }
+      currentSlide.style.display = "block";
+      this.slideIndex++;
+      setTimeout(() => this.showSlides(), 3000); // Change every 3 seconds
     }
   }
 
