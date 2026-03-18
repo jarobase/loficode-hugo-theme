@@ -602,7 +602,6 @@ function toggleMobileMenu() {
     }
   }
 
-
   // Reset post visibility and filters
   function resetPostVisibility() {
     const posts = document.querySelectorAll(".post-item");
@@ -795,118 +794,6 @@ function toggleMobileMenu() {
     }
   });
 
-  // Keyboard shortcuts
-  document.addEventListener("keydown", (e) => {
-    // Theme toggle with 't' key
-    if (e.key === "t" && !e.ctrlKey && !e.metaKey && !e.altKey) {
-      const activeElement = document.activeElement;
-      if (
-        activeElement.tagName !== "INPUT" &&
-        activeElement.tagName !== "TEXTAREA"
-      ) {
-        if (themeToggle) {
-          themeToggle.click();
-        }
-      }
-    }
-
-    // Mute toggle with 'm' key
-    if (e.key === "m" && !e.ctrlKey && !e.metaKey && !e.altKey) {
-      const activeElement = document.activeElement;
-      if (
-        activeElement.tagName !== "INPUT" &&
-        activeElement.tagName !== "TEXTAREA"
-      ) {
-        if (muteToggle) {
-          muteToggle.click();
-        }
-      }
-    }
-  });
-
-  // Add loading states for ambient sounds
-  function showLoadingState(soundType) {
-    const icon = document.querySelector(`[data-sound="${soundType}"]`);
-    if (icon) {
-      icon.style.opacity = "0.5";
-      icon.style.transform = "scale(0.9)";
-    }
-  }
-
-  function hideLoadingState(soundType) {
-    const icon = document.querySelector(`[data-sound="${soundType}"]`);
-    if (icon) {
-      icon.style.opacity = "";
-      icon.style.transform = "";
-    }
-  }
-
-  // Enhanced audio loading with loading states
-  async function loadSoundWithLoading(soundType) {
-    if (audioElements[soundType]) {
-      return audioElements[soundType];
-    }
-
-    showLoadingState(soundType);
-
-    const audio = new Audio(`/audio/${soundType}.mp3`);
-    audio.loop = true;
-    audio.volume = volumeSlider ? volumeSlider.value : 0.3;
-
-    // Handle loading events
-    audio.addEventListener("canplaythrough", () => {
-      hideLoadingState(soundType);
-    });
-
-    audio.addEventListener("error", () => {
-      hideLoadingState(soundType);
-      console.log(`Could not load ${soundType} audio file`);
-      if (ambientLabel) {
-        ambientLabel.textContent = `${sounds[soundType].name} not available`;
-      }
-    });
-
-    audioElements[soundType] = audio;
-    return audio;
-  }
-
-  // Fade in/out effects for audio
-  function fadeIn(audio, duration = 1000) {
-    audio.volume = 0;
-    const targetVolume = volumeSlider ? volumeSlider.value : 0.3;
-    const steps = 20;
-    const stepTime = duration / steps;
-    const volumeStep = targetVolume / steps;
-
-    let currentStep = 0;
-    const fadeInterval = setInterval(() => {
-      currentStep++;
-      audio.volume = Math.min(volumeStep * currentStep, targetVolume);
-
-      if (currentStep >= steps) {
-        clearInterval(fadeInterval);
-      }
-    }, stepTime);
-  }
-
-  function fadeOut(audio, duration = 500) {
-    const initialVolume = audio.volume;
-    const steps = 10;
-    const stepTime = duration / steps;
-    const volumeStep = initialVolume / steps;
-
-    let currentStep = 0;
-    const fadeInterval = setInterval(() => {
-      currentStep++;
-      audio.volume = Math.max(initialVolume - volumeStep * currentStep, 0);
-
-      if (currentStep >= steps) {
-        clearInterval(fadeInterval);
-        audio.pause();
-      }
-    }, stepTime);
-  }
-
   // SPA (Single Page Application) System
   class LofiCodeSPA {
     constructor() {
@@ -918,6 +805,7 @@ function toggleMobileMenu() {
       this.isLoading = false;
       this.isRealPostPage = false;
       this.isRealPage = false;
+      this.slideIndex = 0;
 
       this.init();
     }
@@ -1783,8 +1671,6 @@ function toggleMobileMenu() {
     window.spa = spa; // Make globally accessible
   }
 
-
-
   // Load More Posts functionality
   const loadMoreBtn = document.getElementById('load-more-btn');
   const loadMoreLoading = document.getElementById('load-more-loading');
@@ -1916,17 +1802,4 @@ function toggleMobileMenu() {
 
     return postDiv;
   }
-
-  // Console easter egg
-  console.log(`
-    ☕ Welcome to LofiCode! ☕
-
-    You found the console! Here are some keyboard shortcuts:
-
-    't' - Toggle theme (light/dark)
-    'm' - Mute/unmute ambient sounds
-
-    Built with love, coffee, and way too many interruptions.
-    Happy coding! ✨
-    `);
 })();
