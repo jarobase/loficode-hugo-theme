@@ -1637,24 +1637,16 @@ function toggleMobileMenu() {
       }
       for (let idx = 0; idx < slides.length; idx++) {
         slides[idx].style.display = "none";
-        console.log(slides[idx]);
       }
-      this.slideIndex++;
-      if (this.slideIndex > slides.length) {
+      let currentSlide = slides[this.slideIndex];
+      if (! currentSlide) {
         this.slideIndex = 0;
+        currentSlide = slides[0];
       }
-      console.log(this.slideIndex)
-      if (! slides[this.slideIndex - 1]) {
-        debugger;
-      }
-      slides[this.slideIndex - 1].style.display = "block";
-      setTimeout(this.showSlides, 3000); // Change every 3 seconds
+      currentSlide.style.display = "block";
+      this.slideIndex++;
+      setTimeout(() => this.showSlides(), 3000); // Change every 3 seconds
     }
-
-    plusSlides(n) {
-        this.slideIndex += n - 1;
-        showSlides();
-      }
   }
 
   // Initialize SPA system
