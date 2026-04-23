@@ -347,7 +347,7 @@ theme = "loficode"
   # Profile section
   [params.author]
     name = "LofiCode Dev"
-    image = "/images/profile.png"
+    image = "/images/profile.webp"
 
   [params.social]
     twitter = "username"
