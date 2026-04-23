@@ -54,7 +54,7 @@ theme = "loficode"
   [params.profile]
     name = "Your Name"
     tagline = "Your tagline here"
-    photo = "/images/profile.png"
+    photo = "/images/profile.webp"
 
   # Social links - Supported platforms: github, twitter, linkedin, email, mastodon, youtube, instagram, facebook
   [params.social]
